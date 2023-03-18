@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> {% endcomment %}
+        <title>Contact Book</title>
+        <style>
+
+            *, body {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            html, body {
+                height: 100%;
+                background: rgb(208,104,226);
+            background: linear-gradient(129deg, rgba(208,104,226,1) 0%, rgba(109,23,171,1) 35%, rgba(124,50,151,1) 43%, rgba(229,242,7,1) 100%);
+                overflow: hidden;
+            }
+            
+            
+            .form-holder {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  text-align: center;
+                  min-height: 100vh;
+            }
+            
+            .form-holder .form-content {
+                position: relative;
+                text-align: center;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-align-items: center;
+                align-items: center;
+                padding: 60px;
+            }
+            
+            .form-content .form-items {
+                border: 3px solid #fff;
+                padding: 40px;
+                display: inline-block;
+                width: 100%;
+                min-width: 540px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+                text-align: left;
+                -webkit-transition: all 0.4s ease;
+                transition: all 0.4s ease;
+            }
+            
+            .form-content h3 {
+                color: #fff;
+                text-align: left;
+                font-size: 28px;
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+            
+            .form-content h3.form-title {
+                margin-bottom: 30px;
+            }
+            
+            .form-content p {
+                color: #fff;
+                text-align: left;
+                font-size: 17px;
+                font-weight: 300;
+                line-height: 20px;
+                margin-bottom: 30px;
+            }
+            
+            
+            .form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+                color: #fff;
+            }
+            
+            .form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
+                width: 100%;
+                padding: 9px 20px;
+                text-align: left;
+                border: 0;
+                outline: 0;
+                border-radius: 6px;
+                background-color: #fff;
+                font-size: 15px;
+                font-weight: 300;
+                color: #8D8D8D;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                margin-top: 16px;
+            }
+            
+            
+            .btn-primary{
+                background-color: #6C757D;
+                outline: none;
+                border: 0px;
+                 box-shadow: none;
+            }
+            
+            .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+                background-color: #495056;
+                outline: none !important;
+                border: none !important;
+                 box-shadow: none;
+            }
+            
+            .form-content textarea {
+                position: static !important;
+                width: 100%;
+                padding: 8px 20px;
+                border-radius: 6px;
+                text-align: left;
+                background-color: #fff;
+                border: 0;
+                font-size: 15px;
+                font-weight: 300;
+                color: #8D8D8D;
+                outline: none;
+                resize: none;
+                height: 120px;
+                -webkit-transition: none;
+                transition: none;
+                margin-bottom: 14px;
+            }
+            
+            .form-content textarea:hover, .form-content textarea:focus {
+                border: 0;
+                background-color: #ebeff8;
+                color: #8D8D8D;
+            }
+            
+            .mv-up{
+                margin-top: -9px !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .invalid-feedback{
+                color: #ff606e;
+            }
+            
+            .valid-feedback{
+               color: #2acc80;
+            }
+            .table 
+        {
+            width:100%;
+            border-collapse:collapse;
+        }
+        .table thead 
+        {
+            background-color:#0000FF;
+        }
+        .table thead tr th 
+        {
+            font-size:14px;
+            font-weight:600;
+            letter-spacing:0.35px;
+            color: #FFFFFF;
+            opacity:1;
+            padding:12px;
+            vertical-align:top;
+            border:1px solid #000000;
+        }
+        .table tbody tr td 
+        {
+            font-size:14 px;
+            Letter-spacing:0.35px;
+            font-weight:normal;
+            background-color:#f0c985;
+            padding:8 px;
+            text-align:center;
+            border:1px solid #000000;
+        }
+            </style>
+            <script>
+                (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.requires-validation')
+            Array.from(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+            
+                  form.classList.add('was-validated')
+                }, false)
+              })
+            })()
+            </script>
+    </head>
+    <body >
+
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        
+                    <div class="table-container">
+                        <br>
+                        <table class="table" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                 <tr>
+                                     <th>First Name</th>
+                                     <th>Last Name</th>
+                                     <th>Email</th>
+                                     <th>Contact Number</th>
+                                 </tr>
+                             </thead>
+                         {% for info in Data %}
+                                 <tr>
+                                     <td data-label="Name">{{info.FirstName}}</td>
+                                     <td data-label="Name">{{info.LastName}}</td>
+                                     <td data-label="Email">{{info.Email}}</td>
+                                     <td data-label="ContactNumber">{{info.ContactNumber}}</td>
+                                 </tr>
+                      
+                         {% endfor %}
+                         </tbody>
+                         </table>
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
